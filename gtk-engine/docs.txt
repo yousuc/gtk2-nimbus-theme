@@ -1,0 +1,150 @@
+Where is the /usr/share/themes/*/gtkrc parsed :
+gtk_rc_context_parse_file
+gtk_rc_context_parse_one_file
+
+=-=-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Where are the widget's style gets really assigned :
+bug in gtk_rc_init_style ?
+  check if is gtk_rc_style_to_style correct 
+    - in nimbus style is messed up style->rc_style colors 
+      are correct not the other
+
+- solution nimbus_style_init_from_rc was an empty call 
+  it should duplicate the data if needed. and call the parent_classe fct
+=-=-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Which theme does gradient and is the most efficient
+look at : 
+	 - clearlooks
+	 - Crux		gradient with gdk_draw_line 
+	 - smooth engine (Glider)
+	 - Industrial
+	 - cairo-gtk-theme
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+2006-03-16 Erwann Chenede - <erwann.chenede@sun.com>
+todo : 
+  - struct for the button to hold for each state :
+    - gradient colors
+    - pix corners (fix them for big size)
+
+  - get inline pixbufs in Makefile.am
+
+  done 
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+2006-03-30 Erwann Chenede - <erwann.chenede@sun.com>
+todo :
+  - disabled buttons - done
+  - Default Buttons to fix :
+    done - images corners (maybe try grey scale only to be able to change color
+    easily) 
+    - NORMAL state 
+      done - bottom inner gradiant is white, it should be blueish
+    - ACTIVE state
+      done - top and bottom inner gradient is white, it should be blueish
+    - PRELIGHT state
+      done - inner gradient color should be blueish with bottom blueish too
+    - INSENSITIVE state
+      done - should be the same as normal insensitive
+    - text should be white
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+2006-03-31 Erwann Chenede - <erwann.chenede@sun.com>
+
+  finding the opacity from colors 
+
+ start.red = (gradient->gradient_color->red * seg->start_opacity + ( 100 - seg->start_opacity ) * gradient->bkg_color->red) / 100;
+  c	    =    a				x		  + (100  - x)	b
+
+
+  c = resultant color 
+  a = gradient color 
+  b = the bkg color 
+  x = the opacity
+  
+  c = ax + (100-x)b
+
+  x = (c-100b)/(a-b)
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+2006-04-03 Erwann Chenede - <erwann.chenede@sun.com>
+
+default button additional gradient points
+
+ % 
+27  c0cedb  cddbe8  51789c
+
+86  b0c5d8  c3d8ec  4978a3
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+2006-04-04 Erwann Chenede - <erwann.chenede@sun.com>
+
+- Combobox
+  done - Determine the blueish part location from the arrow 
+	 in the button bin (included in a  hbox)
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+2006-04-05 Erwann Chenede - <erwann.chenede@sun.com>
+- arrow button :
+  - done - write comboxbox definition in rc_style
+  - done - write custom routine in style
+  - done - integrate arrow 
+  - done - check why defaultbutton are 2 pix smaller. 
+    (defaultbutton removes 1 pix on each side for the focus)
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+2006-04-06 Erwann Chenede - <erwann.chenede@sun.com>
+- get gradient for the textfield 
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+2006-04-07 Erwann Chenede - <erwann.chenede@sun.com>
+- draw_flat_box base is used by GtkWindow and inheritated 
+
+- implementation of the textfield :
+  - draw the outline and the two gradient lines in the 
+    draw_shadow routine
+  - check if the white outline is needed (left vertical line)
+  - in draw_flat_box draw it in white and the top line with the 
+    color of the bottom line of the gradient.
+- figure out why there is a base color line at the bottom of the 
+  draw_flat_box when the draw_shadow doesn't draw the rectangle 
+  as filled. (Because of offset)
+- done - spend time to understand how to efficiently manage the number 
+  of colors and if they should be associated with a gc in NimbusStyle 
+  or in the RcStyle.
+
+- done - use the realize_color function from industrial theme to get GdkGC for the 
+  gradient.
+
+- use nimbus_style_init_from_rc to "realize" the color specified in the rc_style
+  - This is not needed with realize_color !
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+scrollbar :
+
+  trough box represent the background of the scroll bar
+  hscrollbar box represent the button
+
+  avoid nimbus_rc_style_init being called more than one
+  - done fix arrow button partial redraw.
+  - done implement slider.
+  
+  - optimization : remove active state for scrollbar
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Pane :
+  done - fix background color for text
+  done - implement pane properly 
+
+  - done implement scales
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+  fix combo box in gimp
+  check handlebar case
+  "lazy load" the replicated images
+
+
+  tabs :
+   draw     box gap        -notebook-  :- surrounding box
+   draw     extension      -tab-       :- tab itself
+   draw     focus  -tab
+
+  -done fix spinner 
+
+  - fix bonoboo toolbar
+  - implement handle for toolbar
+  - list bugs in firefox, thunderbird, soffice
+

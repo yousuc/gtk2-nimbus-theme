@@ -1,0 +1,428 @@
+2011-08-19 Erwann Chenede - <erwann.chenede@oracle.com>
+
+  * gtk-engine/nimbus_style.c: reduce max window size to avoid 
+    resource starvation. Fix for 7076646
+
+2011-06-24 Erwann Chenede - <erwann.chenede@oracle.com>
+
+  * gtk-engine/nimbus_style.c: fix for 17274 (TD not respecting theming pb)
+    and 7027504
+  * configure.in : bumped release
+
+2010-10-14 Erwann Chenede - <erwann.chenede@oracle.com>
+
+  * gtk-engine/nimbus_style.c: fix for 16939
+
+2010-07-23 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * gtk-engine/nimbus_style.c: fix for 13704
+
+2010-07-22 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * icons/*: added system-software-install.png fix for 14167
+
+2010-07-22 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * icons/index.theme.in : fix for 7968 (Calum Benson)
+
+2010-07-22 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * icons/* : fix for 14455: renamed administration-network-configuration to 
+    preferences-system-network
+
+2010-07-22 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * gtk-engine/nimbus_style.c: fix for 15409 (Bartosz Kwitniewski)
+
+2009-10-09 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * configure.in: new release 0.1.4
+
+2009-10-07 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * gtk-engine/nimbus_style.c: fix for 6744700 (firefox default button)
+
+2009-10-07 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * gtk-engine/nimbus_style.c: fix for 6880869 (firefox scroll)
+
+2009-10-06 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * gtk-engine/gtk-2.0/*gtkrc : fix 6684201 (gedit tab)
+
+2009-09-07 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * configure.in
+  * gtk-engine/nimbus_style.c : make nimbus compile cleanly under mingw
+    patch by Alexander Shaduri
+
+2009-08-28 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * icons/* : added new nwam icons (doo 10942)
+
+2009-03-11 Erwann Chenede - <erwann.chenede@sun.com>
+
+  fix for 1621
+  * icons/48x48/places/start-here.png: 48x48 version of the OpenSolaris
+    logo
+  * icons/48x48/places/Makefile.am : added new icon
+  * configure.in : bump version
+
+2009-02-04 Erwann Chenede - <erwann.chenede@sun.com>
+
+  initial implementation of light-nimbus theme.
+
+  * metacity/light-metacity-theme-1.xml : new theme variation 
+  * metacity/Makefile.am
+  * light-index.theme.in
+  * configure.in : bumped to 0.1.2
+  * gtk-engine/gtk-2.0/light-gtkrc
+  * gtk-engine/gtk-2.0/Makefile.am
+  * gtk-engine/nimbus_rc_style.c : added light_theme token and new colors
+  * gtk-engine/nimbus_rc_style.h
+  * gtk-engine/nimbus_style.c : added light theme switch
+  * Makefile.am
+  * specs/light/WindowFrame.jpg : designer images and specs
+  * specs/light/WindowFrame-Spec2.jpg :
+  * specs/light/WindowFrame-Spec1b.jpg
+
+2008-10-15 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * gtk-engine/nimbus_rc_style.c: removed reference to gdk_display_get_default 
+    as gtk now initializes it after the theme engine is loaded. fixes 6758256
+    Also revert to previous vline color.
+  * gtk-engine/nimbus_utils.c: fix spin button rendering error in firefox fixes 6698078
+  * configure.in : bumped version to 0.1.1
+
+2008-09-24 Erwann Chenede - <erwann.chenede@sun.com>
+  
+  * gtk-engine/gtk-2.0/Makefile.am:
+  * Makefile.am: don't install dark-* files.
+
+2008-09-19 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * icons/* : more icons for printer and gnome-netstatus
+  * metacity/Makefile.am : copy correctly metacity-theme-1.xml
+  * gtk-engine/gtk-2.0/gtkrc : fix menu prelight color
+
+2008-09-19 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * icons/* : added new printer and network status icons for nwam project
+
+2008-09-19 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * gtk-engine/gtk-2.0/gtkrc : 
+  * gtk-engine/nimbus_rc_style.c : lighten up the default background 
+    as requested by Xdesign
+
+2008-09-19 Erwann Chenede - <erwann.chenede@sun.com>
+
+  Initial implementation of the Dark Nimbus theme
+
+  * configure.in : bumped to 0.1.0
+  * metacity/dark-metacity-theme-1.xml
+  * metacity/Makefile.am
+  * gtk-engine/gtk-2.0/dark-gtkrc
+  * gtk-engine/gtk-2.0/Makefile.am
+  * gtk-engine/tests/combo.c
+  * gtk-engine/tests/twf.c
+  * gtk-engine/tests/panes.c
+  * gtk-engine/tests/combobox.c
+  * gtk-engine/tests/click.c
+  * gtk-engine/tests/twf.glade
+  * gtk-engine/nimbus_rc_style.c
+  * gtk-engine/images/dark-button-corner-normal-top-left.png
+  * gtk-engine/images/dark-button-corner-active-top-right.png
+  * gtk-engine/images/dark-button-corner-prelight-bottom-right.png
+  * gtk-engine/images/dark-button-corner-disabled-bottom-left.png
+  * gtk-engine/images/dark-button-corner-active-top-left.png
+  * gtk-engine/images/dark-button-corner-normal-top-right.png
+  * gtk-engine/images/dark-button-corner-normal-bottom-right.png
+  * gtk-engine/images/dark-button-corner-disabled-top-right.png
+  * gtk-engine/images/dark-button-corner-active-bottom-right.png
+  * gtk-engine/images/dark-button-corner-disabled-top-left.png
+  * gtk-engine/images/dark-button-corner-normal-bottom-left.png
+  * gtk-engine/images/dark-button-corner-disabled-bottom-right.png
+  * gtk-engine/images/dark-button-corner-prelight-top-right.png
+  * gtk-engine/images/dark-button-corner-active-bottom-left.png
+  * gtk-engine/images/dark-button-corner-prelight-top-left.png
+  * gtk-engine/images/Makefile.am
+  * gtk-engine/images/dark-button-corner-prelight-bottom-left.png
+  * gtk-engine/nimbus_rc_style.h
+  * gtk-engine/nimbus_style.c
+  * dark-index.theme.in
+  * Makefile.am
+  * specs
+  * specs/dark
+  * specs/dark/Window_Frame-dark.png
+  * specs/dark/dark_button_spec.png
+  * specs/dark/issues.txt
+  * specs/dark/nimbusD-1.jpg
+
+
+2008-08-21 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * README: added info on how to build
+
+2008-08-14 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * gtk-engine/nimbus_style.c: don't draw the handle is 
+    the height requested is less that the image size (4 pixels).
+  * configure.in : bumped release
+
+2008-04-15 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * icons/24x24/places/start-here.png: new tweaked logo
+  * configure.in : bumped release
+
+2008-04-08 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * configure.in : bumped release
+  * gtk-engine/nimbus_style.c : fixed include
+  * icons/24x24/places/start-here.png : new logo size
+  * icons/24x24/places/Makefile.am : added file
+    fixes opensolaris bug 1030
+
+2008-04-06 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * gtk-engine/tests/twf.c 
+  * gtk-engine/tests/twf.glade : new test
+  * README : added testing advice
+
+2008-04-06 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * configure.in: bumped release
+  * gtk-engine/nimbus_style.c: fix for 6680332. refine the 
+    checks for 6446041 as one of its side effect was 6680332 
+    
+2008-03-25 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * configure.in: bumped release
+  * gtk-engine/gtk-2.0/gtkrc : use default color scheme for panel 
+    menu anw wncklets
+  * gtk-engine/nimbus_style.c : don't draw gradient for wncklets.
+  * icons/32x32/places/start-here.png : added new openSolaris logo
+
+2008-03-18 Erwann Chenede - <erwann.chenede@sun.com>
+
+    patch from Eugene Zagidullin
+  * gtk-engine/nimbus_style.c : draw properly the bottom and right 
+    borders of GtkNotebook.
+
+2008-03-10 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * gtk-engine/nimbus_style.c : ensure the GC clip is reset 
+    before drawing the background. 6446041 and 522 @ defect.opensolaris.org
+  * configure.in : bumped release
+
+2008-02-01 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * gtk-engine/nimbus_rc_style.c: fixed a leak (6658010)
+  * gtk-engine/nimbus_style.c: don't draw the gradient 
+    for the gnome-panel "applications" menubar applet.
+  * configure.in: bumped release
+
+2007-12-20 Erwann Chenede - <erwann.chenede@sun.com>
+
+    patch from Diego "Flameeyes" Pettenò
+  * gtk-engine/nimbus_style.c: make string array const
+  * gtk-engine/nimbus_utils.c: fixed include typo
+
+2007-11-21 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * gtk-engine/gtk-2.0/gtkrc : assign tips style to all gtk-toolip*
+    widgets. Bug report by Thierry Thévoz.
+  * configure.in : bumped release
+
+2007-11-21 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * icons/..x../devices/network-wire.*.png : added NWAM icons
+  * icons/..x../devices/Makefile.amd : added icons
+
+2007-11-21 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * gtk-engine/nimbus_style.c : added proper cast
+  * gtk-engine/nimbus_utils.c : remove clipping setting on cached 
+    gc. This caused 6626999 as libwnck is accessing the theme style 
+    cached gc directly.
+
+2007-10-05 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * icons/[1-9].* : renamed icons.
+  * icons/..x../places/Makefile.am : fixed shared folders issue 
+    6590041
+  * icons/index.theme.in : fallback theme is now Tango
+
+2007-10-03 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * icons/[1-9].* : added new icons (backup, core, trash)
+    and fixed 6590093
+  * utils/* : added doc about the helper scripts
+  * icons/index.theme.in : added new categories for 6590093
+  * icons/my-mapping.xml : added aliases for the new icons
+  * configure.in : bumped version and added new makefiles
+  * gtk-engine/images/handlebar-* : resized to 10 pix witdh for 6479354
+  * gtk-engine/nimbus_style.c : fixes for 6479354, 6479362
+    new fix for the OOo spinner issue. Use the draw_shadow instead
+    of draw flat box as we can determine the widget type in that 
+    function.
+
+2007-09-27 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * gtk-engine/nimbus_style.c: explicitly draw the flat box 
+    as white when the details string is entry_bg. This is a 
+    special case for OpenOffice text entry with spinner.
+    Bug reported by Thierry Thévoz.
+
+2007-09-25 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * gtk-engine/gtk-2.0/gtkrc: changed the bg[ACTIVE] to another 
+    color to avoid OO toolbar selected items to look the same as 
+    unselected. Bug report and original patch by Thierry Thévoz.
+
+2007-08-01 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * gtk-engine/gtk-2.0/gtkrc: added a different selected color 
+    to fix second part of the nimbus problem described in 6372959
+  * configure.in : bumped release.
+
+2007-06-11 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * gtk-engine/nimbus_rc_style.c  
+  * gtk-engine/images/check-disable-inconsistent.png
+  * gtk-engine/images/check-prelight-inconsistent.png
+  * gtk-engine/images/radio-disable-inconsistent.png
+  * gtk-engine/images/radio-prelight-inconsistent.png
+  * gtk-engine/images/radio-normal-inconsistent.png
+  * gtk-engine/images/check-normal-inconsistent.png
+  * gtk-engine/images/radio-active-inconsistent.png
+  * gtk-engine/images/check-active-inconsistent.png
+  * gtk-engine/images/Makefile.am
+  * gtk-engine/nimbus_rc_style.h
+  * gtk-engine/nimbus_style.c : implemented missing 
+    inconsistent state for check and radio buttons. fixes 6541420.
+    Stopped assuming draw_progress only draw progress bars
+    as custom progress exist in the wild. See ekiga
+    GtkLevelMeter for example.
+
+
+2007-04-06 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * icons/my-mapping.xml : added icon alias fix for 6508241
+  * icons/*/*.png :
+  * metacity/*.png :
+  * gtk-engine/*/*.png : svn surgery, removed and added the binary 
+    files as the initial svn import truncated every files
+
+2007-03-20 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * gtk-engine/nimbus_style.c : added sanity checks to fix warning 
+    in acroread and firefox
+
+2007-03-14 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * gtk-engine/nimbus_style.c : added sanity checks to fix : 6514195, 6530991.
+    I've rewritten to caching routine for clipping GC's as it wasn't 
+    multihead proof. it fixes 6453340
+
+2006-10-11 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * gtk-engine/gtk-2.0/dialog* : changed image size
+  * gtk-engine/nimbus_style.c : fix for 6372959
+  * configure.in : bumped release.
+
+2006-09-19 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * icons/* : initial implementation of the icon theme.
+  * configure.in : added dependency on icon-name-mapping
+                   bumped release.
+
+2006-07-26 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * gtk-engine/* : implemented radio and check widget for menu item
+    and fixed java radio/check menu button cropping issue.
+
+2006-07-20 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * gtk-engine/nimbus_style.c : fix for gimp trashed rulers and progressbar
+
+2006-07-20 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * gtk-engine/nimbus_style.c: fix for gaim crash 6446921
+
+2006-06-02 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * a lot of fixes :)
+    - Added clipping for all the drawing routines
+    - implemented handlebar 
+    - fixed scrollbar for firefox/thunderbird and SO
+    - fixed pane problems
+    - fixed shadow problems
+    - fixed Range problems
+
+2006-05-26 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * gtk-engine/*.[hc] : fixed exported ABI and 6430524
+  * metacity/metacity-theme-1.xml : fixed 6430374
+
+2006-05-22 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * gtk-engine/nimbus_style.c :
+  * gtk-engine/gtk-2.0/gtkrc : implemented tooltips
+
+  * metacity/metacity-theme-1.xml : fixed maximized toolbar 
+    problem when fonts are very small
+
+2006-05-19 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * gtk-engine/nimbus_style.c : fix for 6426784
+
+2006-05-12 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * added stock icons
+
+2006-04-26 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * gtk-engine/nimbus_rc_style.c
+    gtk-engine/nimbus_rc_style.h
+    gtk-engine/nimbus_style.c : better memory management 
+    only allocate replicated images if needed.
+    fixed vertical progress bar glow offset.
+
+2006-04-21 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * gtk-engine/nimbus_style.c  : fixed GnomeEntry and not GnomeFileEntry
+				 fixed Gimp Combox
+				 fixed arrow centering problem is combobox
+
+2006-04-21 Erwann Chenede - <erwann.chenede@sun.com>
+ 
+  * gtk-engine/nimbus_style.c : fixed GnomeFileEntry theming
+
+2006-04-21 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * gtk-engine/nimbus_rc_style.c
+    gtk-engine/nimbus_utils.c
+    gtk-engine/nimbus_utils.h : ported gdk_pixbuf_rotate_simple
+    to avoid dependency on gtk+ 2.6
+
+2006-04-20 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * make index.theme work
+
+2006-04-20 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * make it compatible with JDS 3 (no cairo, hardcode Minor version)
+
+2006-04-20 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * initial complete gtk engine commit (I said initial !)
+  
+2006-04-06 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * implemented combo box and a more modular custom button rendering 
+    routine.
+
+2006-04-04 Erwann Chenede - <erwann.chenede@sun.com>
+
+  * initial commit of the engine : only the buttons are implemented.
